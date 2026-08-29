@@ -1,137 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduGuard AI • Student Retention System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetroMind - AI Academic & Wellness Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
-    <!-- Floating Background Shapes -->
-    <div class="shape s1"></div>
-    <div class="shape s2"></div>
-    <div class="shape s3"></div>
-    <div class="shape s4"></div>
-    <div class="shape s5"></div>
+  <!-- Background Floating Animated Shapes -->
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="shape s3"></div>
 
-    <!-- ==========================================
-         VIEW 1: LANDING PAGE
-         ========================================== -->
-    <div id="view-landing" class="view-section active">
-        <div class="retro-card landing-card">
-            <h1>EduGuard AI<span class="title-dot"></span></h1>
-            <p class="subtitle">AI-Based Drop-Out Prediction & Counseling System</p>
-            <div class="divider"></div>
-            <p class="landing-desc">Empowering students, faculty, and counselors with real-time risk tracking, AI insights, and targeted intervention strategies.</p>
-            <button onclick="switchView('view-role-select')">Enter Portal →</button>
+  <!-- VIEW 1: LANDING PAGE -->
+  <section id="view-landing" class="view-section active">
+    <div class="landing-card">
+      <h1>RetroMind<span class="title-dot"></span></h1>
+      <div class="subtitle">AI-Powered Academic & Wellness Ecosystem</div>
+      <div class="divider"></div>
+      <p class="landing-desc">
+        A structured platform featuring intelligent risk assessments, autonomous intervention pipelines, and an extensive AI companion for holistic student and faculty success.
+      </p>
+      <button id="btn-get-started">Get Started</button>
+    </div>
+  </section>
+
+  <!-- VIEW 2: LOGIN / ROLE SELECTION -->
+  <section id="view-role-select" class="view-section">
+    <div class="retro-card">
+      <button class="back-link" id="back-to-landing">← Back</button>
+      <h2>Select Role<span class="title-dot"></span></h2>
+      <div class="subtitle">Choose your access portal</div>
+      <div class="divider"></div>
+      <div class="role-grid">
+        <button class="role-btn" data-role="student">Student Portal</button>
+        <button class="role-btn" data-role="faculty">Faculty Portal</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 3: DYNAMIC REGISTRATION / LOGIN FORM -->
+  <section id="view-auth-form" class="view-section">
+    <div class="retro-card">
+      <button class="back-link" id="back-to-role">← Back</button>
+      <h2 id="form-title">Portal Login<span class="title-dot"></span></h2>
+      <div class="subtitle" id="form-subtitle">Enter your credentials</div>
+      <div class="divider"></div>
+      
+      <form id="login-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="input-name" required placeholder="e.g. Jane Doe">
         </div>
-    </div>
-
-    <!-- ==========================================
-         VIEW 2: ROLE SELECTOR
-         ========================================== -->
-    <div id="view-role-select" class="view-section">
-        <div class="retro-card">
-            <button class="back-link" onclick="switchView('view-landing')">← Back</button>
-            <h1>Role Select<span class="title-dot"></span></h1>
-            <p class="subtitle">Choose your access portal</p>
-            <div class="divider"></div>
-            
-            <div class="role-grid">
-                <button class="role-btn" onclick="selectRole('student')">🎓 Student Portal</button>
-                <button class="role-btn" onclick="selectRole('faculty')">🏫 Faculty Portal</button>
-                <button class="role-btn" onclick="selectRole('counselor')">💬 Counselor Portal</button>
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label id="id-label">Student ID</label>
+            <input type="text" id="input-id" required placeholder="e.g. STU-8492">
+          </div>
+          <div class="form-group">
+            <label>Department / Year</label>
+            <input type="text" id="input-dept" required placeholder="e.g. Computer Science / Year 3">
+          </div>
         </div>
-    </div>
-
-    <!-- ==========================================
-         VIEW 3: CREDENTIALS / SIGN-IN FORM
-         ========================================== -->
-    <div id="view-auth" class="view-section">
-        <div class="retro-card">
-            <button class="back-link" onclick="switchView('view-role-select')">← Back to Roles</button>
-            <h1 id="auth-heading">Sign In<span class="title-dot"></span></h1>
-            <p class="subtitle" id="auth-subtitle">Enter your profile details</p>
-            <div class="divider"></div>
-            
-            <form id="login-form" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="input-name" placeholder="e.g. Aarav Sharma" required />
-                </div>
-                <div class="form-group">
-                    <label>Student ID / Roll Number</label>
-                    <input type="text" id="input-id" placeholder="e.g. STU-101" required />
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Academic Year</label>
-                        <select id="input-year" required>
-                            <option value="">Select Year</option>
-                            <option value="1st Year">1st Year</option>
-                            <option value="2nd Year">2nd Year</option>
-                            <option value="3rd Year">3rd Year</option>
-                            <option value="4th Year">4th Year</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Semester</label>
-                        <select id="input-sem" required>
-                            <option value="">Select Sem</option>
-                            <option value="Semester 1">Semester 1</option>
-                            <option value="Semester 2">Semester 2</option>
-                            <option value="Semester 3">Semester 3</option>
-                            <option value="Semester 4">Semester 4</option>
-                            <option value="Semester 5">Semester 5</option>
-                            <option value="Semester 6">Semester 6</option>
-                            <option value="Semester 7">Semester 7</option>
-                            <option value="Semester 8">Semester 8</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Institutional Email</label>
-                    <input type="email" id="input-email" placeholder="name@university.edu" required />
-                </div>
-                <button type="submit" style="margin-top: 10px;">Launch Dashboard →</button>
-            </form>
+        <div class="form-group">
+          <label>Institutional Email</label>
+          <input type="email" id="input-email" required placeholder="name@university.edu">
         </div>
+        <button type="submit" id="btn-submit-auth">Launch Dashboard</button>
+      </form>
     </div>
+  </section>
 
-    <!-- ==========================================
-         VIEW 4: DASHBOARD CONTAINER
-         ========================================== -->
-    <div id="view-dashboard" class="view-section dashboard-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div>
-                <h2 class="sidebar-brand">EduGuard<span class="title-dot"></span></h2>
-                <div id="user-session-info" class="session-box">
-                    <!-- Dynamic user info goes here -->
-                </div>
-            </div>
-            <div id="sidebar-nav-links" class="sidebar-links">
-                <!-- Dynamically populated links -->
-            </div>
-            <button class="logout-btn" onclick="switchView('view-landing')">Log Out</button>
-        </aside>
+  <!-- VIEW 4: STUDENT DASHBOARD -->
+  <section id="view-student-dash" class="dashboard-layout view-section">
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-brand">RetroMind<span class="title-dot"></span></div>
+        <div class="session-box">
+          <strong id="session-student-name">Student Name</strong>
+          <span id="session-student-meta">ID: STU-0000</span>
+        </div>
+        <div class="sidebar-links">
+          <button class="nav-link active" data-tab="stud-profile">1. Profile</button>
+          <button class="nav-link" data-tab="stud-risk">2. Risk Score</button>
+          <button class="nav-link" data-tab="stud-ai">3. AI Counselor</button>
+          <button class="nav-link" data-tab="stud-support">4. Support Plan</button>
+        </div>
+      </div>
+      <button class="logout-btn" id="logout-student">Log Out</button>
+    </aside>
 
-        <!-- Main Content Canvas -->
-        <main class="main-content">
-            <header class="dash-header">
-                <h2 id="page-title">Dashboard</h2>
-                <span id="user-role-badge" class="role-badge">Role</span>
-            </header>
-            
-            <div id="tab-content" class="tab-card retro-card">
-                <!-- Dynamic Content Views Load Here -->
-            </div>
-        </main>
-    </div>
+    <main class="main-content">
+      <header class="dash-header">
+        <h2 id="stud-header-title">Student Profile</h2>
+        <span class="role-badge">Student Portal</span>
+      </header>
 
-    <script src="script.js"></script>
+      <!-- Tab 1: Profile -->
+      <div class="tab-card active-tab" id="tab-stud-profile">
+        <h3>Academic Identity & Details</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">Manage your core institutional profile, registered coursework, and wellness markers.</p>
+        <div class="form-row">
+          <div class="form-group"><label>Current GPA</label><input type="text" value="3.82 / 4.0" readonly></div>
+          <div class="form-group"><label>Advisor Assigned</label><input type="text" value="Dr. Alistair Vance" readonly></div>
+        </div>
+        <div class="form-group"><label>Wellness Index</label><input type="text" value="Stable (84/100)" readonly></div>
+      </div>
+
+      <!-- Tab 2: Risk Score -->
+      <div class="tab-card" id="tab-stud-risk" style="display:none;">
+        <h3>Predictive Risk Score & Analytics</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">AI-calculated holistic indicator based on attendance, grade trajectory, and sentiment analysis.</p>
+        <div style="background:var(--cream); padding:20px; border-radius:4px; border:1px solid #e8d8cc; text-align:center; margin-bottom:15px;">
+          <h1 style="font-size:42px; color:var(--teal);">Low Risk (14%)</h1>
+          <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-top:5px;">Academic standing is optimal</p>
+        </div>
+        <button id="btn-recalc-risk">Run AI Diagnostic Refresh</button>
+      </div>
+
+      <!-- Tab 3: AI Counselor -->
+      <div class="tab-card" id="tab-stud-ai" style="display:none; display:flex; flex-direction:column; height:450px;">
+        <h3>Extensive AI Wellness & Academic Counselor</h3>
+        <div class="divider" style="margin-bottom:10px;"></div>
+        <div id="ai-chat-box" style="flex-grow:1; background:#fff; border:1px solid #e8d8cc; border-radius:4px; padding:15px; overflow-y:auto; margin-bottom:12px; font-size:13px; line-height:1.5;">
+          <div style="margin-bottom:10px;"><strong>AI Counselor:</strong> Hello! I am your extensive AI companion. Ask me anything regarding time management, burnout prevention, or course material assistance.</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="ai-chat-input" placeholder="Type your query to the AI..." style="flex-grow:1; padding:10px; border:1px solid #e8d8cc; border-radius:3px; outline:none; font-family:'Josefin Sans'; font-size:13px;">
+          <button id="ai-chat-send" style="width:100px; padding:10px;">Send</button>
+        </div>
+      </div>
+
+      <!-- Tab 4: Support Plan -->
+      <div class="tab-card" id="tab-stud-support" style="display:none;">
+        <h3>Generated Support Plan</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">Autonomous recommendations compiled by RetroMind AI to optimize your term success.</p>
+        <ul style="padding-left:20px; font-size:14px; line-height:1.8; color:var(--warm);">
+          <li>Maintain current study hours for Advanced Algorithms.</li>
+          <li>Optional peer mentorship session available on Thursday.</li>
+          <li>Sleep hygiene optimization protocol active.</li>
+        </ul>
+      </div>
+    </main>
+  </section>
+
+  <!-- VIEW 5: FACULTY DASHBOARD -->
+  <section id="view-faculty-dash" class="dashboard-layout view-section">
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-brand">RetroMind<span class="title-dot"></span></div>
+        <div class="session-box">
+          <strong id="session-faculty-name">Faculty Name</strong>
+          <span id="session-faculty-meta">Dept: Faculty Lead</span>
+        </div>
+        <div class="sidebar-links">
+          <button class="nav-link active" data-tab="fac-students">1. Students</button>
+          <button class="nav-link" data-tab="fac-risk">2. Risk Overview</button>
+          <button class="nav-link" data-tab="fac-reports">3. AI Reports</button>
+          <button class="nav-link" data-tab="fac-details">4. Student Details</button>
+          <button class="nav-link" data-tab="fac-intervention">5. Intervention Plan</button>
+          <button class="nav-link" data-tab="fac-progress">6. Progress Tracking</button>
+        </div>
+      </div>
+      <button class="logout-btn" id="logout-faculty">Log Out</button>
+    </aside>
+
+    <main class="main-content">
+      <header class="dash-header">
+        <h2 id="fac-header-title">Student Cohort Roster</h2>
+        <span class="role-badge">Faculty Portal</span>
+      </header>
+
+      <!-- Tab 1: Students -->
+      <div class="tab-card active-tab" id="tab-fac-students">
+        <h3>Enrolled Students Directory</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">Comprehensive roster of students under your advisory and teaching supervision.</p>
+        <table style="width:100%; border-collapse:collapse; font-size:13px; text-align:left;">
+          <thead>
+            <tr style="border-bottom:2px solid #e8d8cc; color:var(--muted);">
+              <th style="padding:8px;">Name</th>
+              <th style="padding:8px;">ID</th>
+              <th style="padding:8px;">Status</th>
+              <th style="padding:8px;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #f2ede4;">
+              <td style="padding:10px;">Marcus Brody</td>
+              <td>STU-1049</td>
+              <td><span style="color:var(--teal); font-weight:bold;">Stable</span></td>
+              <td><button style="width:auto; padding:5px 10px; font-size:10px;" onclick="switchFacTab('fac-details')">Inspect</button></td>
+            </tr>
+            <tr style="border-bottom:1px solid #f2ede4;">
+              <td style="padding:10px;">Elena Fisher</td>
+              <td>STU-1082</td>
+              <td><span style="color:var(--coral); font-weight:bold;">At-Risk</span></td>
+              <td><button style="width:auto; padding:5px 10px; font-size:10px;" onclick="switchFacTab('fac-details')">Inspect</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab 2: Risk Overview -->
+      <div class="tab-card" id="tab-fac-risk" style="display:none;">
+        <h3>Cohort Risk Analytics Matrix</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">AI clustering breakdown identifying engagement drop-offs and academic friction points across cohorts.</p>
+        <div class="form-row">
+          <div style="background:var(--cream); padding:15px; border-radius:4px; border:1px solid #e8d8cc;">
+            <strong>High Risk Cohort</strong>
+            <p style="font-size:24px; font-family:'Playfair Display'; color:var(--coral); margin-top:5px;">4.2%</p>
+          </div>
+          <div style="background:var(--cream); padding:15px; border-radius:4px; border:1px solid #e8d8cc;">
+            <strong>Moderate Risk</strong>
+            <p style="font-size:24px; font-family:'Playfair Display'; color:var(--peach); margin-top:5px;">12.8%</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: AI Reports -->
+      <div class="tab-card" id="tab-fac-reports" style="display:none;">
+        <h3>Extensive AI Diagnostic & Summary Reports</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">Synthesized summaries generated overnight by RetroMind AI core models.</p>
+        <div style="background:#fff; padding:15px; border:1px solid #e8d8cc; border-radius:4px; font-size:13px; line-height:1.6;">
+          <strong>Weekly Synthesis Report #42:</strong> Overall engagement has increased by 3.4%. Mid-term submissions in Section B indicate a need for supplementary tutoring in data structures. AI has auto-flagged 2 candidates for early intervention.
+        </div>
+      </div>
+
+      <!-- Tab 4: Student Details -->
+      <div class="tab-card" id="tab-fac-details" style="display:none;">
+        <h3>Individual Student Deep-Dive</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">Detailed telemetry, attendance metrics, and historical performance logs.</p>
+        <div class="form-group"><label>Selected Student</label><input type="text" value="Elena Fisher (STU-1082)" readonly></div>
+        <div class="form-row">
+          <div class="form-group"><label>Attendance Rate</label><input type="text" value="72%" readonly></div>
+          <div class="form-group"><label>Assignment Completion</label><input type="text" value="65%" readonly></div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Intervention Plan -->
+      <div class="tab-card" id="tab-fac-intervention" style="display:none;">
+        <h3>Autonomous Intervention Plan Builder</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">AI-recommended action blueprints tailored to reverse academic decline.</p>
+        <div class="form-group">
+          <label>Intervention Protocol</label>
+          <select style="width:100%; padding:11px; background:#fff; border:1px solid #e8d8cc; border-radius:3px; font-family:'Josefin Sans'; font-size:13px;">
+            <option>Mandatory Bi-Weekly Advising Check-in</option>
+            <option>Peer Study Group Assignment</option>
+            <option>Counseling Wellness Referral</option>
+          </select>
+        </div>
+        <button id="btn-deploy-intervention">Deploy AI Intervention Plan</button>
+      </div>
+
+      <!-- Tab 6: Progress Tracking -->
+      <div class="tab-card" id="tab-fac-progress" style="display:none;">
+        <h3>Longitudinal Progress Tracking</h3>
+        <div class="divider"></div>
+        <p class="landing-desc">Real-time telemetry measuring student recovery and milestone achievement post-intervention.</p>
+        <div style="background:var(--cream); padding:15px; border-radius:4px; border:1px solid #e8d8cc; font-size:13px; line-height:1.6;">
+          <strong>Status: Active Tracking</strong><br>
+          Student Elena Fisher has completed 2 of 4 milestone check-ins with positive trajectory shift (+14% engagement).
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script src="script2.js"></script>
 </body>
 </html>
