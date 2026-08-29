@@ -135,15 +135,56 @@ button:hover { background: #e85c5c; transform: translate(1px, 1px); box-shadow: 
   font-size: 10px;
 }
 
-/* Dashboard Layout */
+/* Form Groups & Inputs Fix */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 11px 12px;
+  background: #fff;
+  border: 1px solid #e8d8cc;
+  border-radius: 3px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 13px;
+  color: var(--warm);
+  outline: none;
+  box-shadow: inset 2px 2px 0 rgba(0,0,0,0.03);
+}
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--teal);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Dashboard Layout Fix (Matching your class name) */
 .dashboard-layout {
   max-width: 1100px;
+  width: 95%;
   margin: auto;
   display: none;
   gap: 24px;
   padding: 20px;
   align-items: stretch;
+  justify-content: center;
 }
+.dashboard-layout.active {
+  display: flex;
+}
+
 .sidebar {
   width: 260px;
   background: var(--card-bg);
@@ -155,7 +196,9 @@ button:hover { background: #e85c5c; transform: translate(1px, 1px); box-shadow: 
   justify-content: space-between;
 }
 .sidebar-brand {
+  font-family: "Playfair Display", serif;
   font-size: 22px;
+  font-weight: 900;
   margin-bottom: 1.5rem;
 }
 .sidebar-links {
@@ -172,6 +215,7 @@ button:hover { background: #e85c5c; transform: translate(1px, 1px); box-shadow: 
   text-align: left;
   padding: 10px 14px;
   font-size: 11px;
+  width: 100%;
 }
 .nav-link:hover, .nav-link.active {
   background: var(--peach);
@@ -184,11 +228,13 @@ button:hover { background: #e85c5c; transform: translate(1px, 1px); box-shadow: 
   background: #d9534f;
   box-shadow: 3px 3px 0 #a94442;
 }
+
 .main-content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 780px;
 }
 .dash-header {
   background: var(--card-bg);
@@ -212,110 +258,11 @@ button:hover { background: #e85c5c; transform: translate(1px, 1px); box-shadow: 
   max-width: none;
   box-shadow: 6px 6px 0 var(--peach);
   min-height: 380px;
-}
-
-/* Floating Shapes with Enhanced Drift Motion */
-.shape {
-  position: fixed;
-  border-radius: 50%;
-  opacity: 0.45;
-  pointer-events: none;
-  z-index: 0;
-  animation: drift 16s ease-in-out infinite alternate;
-}
-
-.s1 { 
-  width: 300px; 
-  height: 300px; 
-  background: var(--peach); 
-  top: -60px; 
-  left: -60px; 
-  animation-duration: 18s;
-}
-
-.s2 { 
-  width: 220px; 
-  height: 220px; 
-  background: var(--teal); 
-  bottom: -40px; 
-  right: -40px; 
-  animation-duration: 22s;
-  animation-delay: -4s;
-}
-
-.s3 { 
-  width: 150px; 
-  height: 150px; 
-  background: var(--lemon); 
-  top: 20%; 
-  right: 10%; 
-  animation-duration: 20s;
-  animation-delay: -8s;
-}
-
-/* Increased range for more fluid wandering */
-@keyframes drift {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(55px, -45px) scale(1.06);
-  }
-  66% {
-    transform: translate(-35px, 40px) scale(0.94);
-  }
-  100% {
-    transform: translate(30px, 45px) scale(1.03);
-  }
-}
-.s1 { 
-  width: 300px; 
-  height: 300px; 
-  background: var(--peach); 
-  top: -60px; 
-  left: -60px; 
-  animation-duration: 18s;
-}
-
-.s2 { 
-  width: 220px; 
-  height: 220px; 
-  background: var(--teal); 
-  bottom: -40px; 
-  right: -40px; 
-  animation-duration: 22s;
-  animation-delay: -4s;
-}
-
-.s3 { 
-  width: 150px; 
-  height: 150px; 
-  background: var(--lemon); 
-  top: 20%; 
-  right: 10%; 
-  animation-duration: 20s;
-  animation-delay: -8s;
-}
-
-/* Added New Shapes */
-.s4 {
-  width: 120px;
-  height: 120px;
-  background: var(--coral);
-  bottom: 15%;
-  left: 12%;
-  animation-duration: 24s;
-  animation-delay: -2s;
-  opacity: 0.35;
-}
-
-.s5 {
-  width: 90px;
-  height: 90px;
-  background: var(--mint);
-  top: 12%;
-  left: 25%;
-  animation-duration: 16s;
-  animation-delay: -6s;
-  opacity: 0.4;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 4px;
+  position: relative;
+  text-align: left;
+  overflow-y: auto;
+  max-height: 520px;
 }

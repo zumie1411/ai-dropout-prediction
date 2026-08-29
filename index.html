@@ -13,6 +13,8 @@
     <div class="shape s1"></div>
     <div class="shape s2"></div>
     <div class="shape s3"></div>
+    <div class="shape s4"></div>
+    <div class="shape s5"></div>
 
     <!-- ==========================================
          VIEW 1: LANDING PAGE
@@ -23,39 +25,98 @@
             <p class="subtitle">AI-Based Drop-Out Prediction & Counseling System</p>
             <div class="divider"></div>
             <p class="landing-desc">Empowering students, faculty, and counselors with real-time risk tracking, AI insights, and targeted intervention strategies.</p>
-            <button onclick="switchView('view-auth')">Enter Portal →</button>
+            <button onclick="switchView('view-role-select')">Enter Portal →</button>
         </div>
     </div>
 
     <!-- ==========================================
-         VIEW 2: LOGIN / ROLE SELECTOR
+         VIEW 2: ROLE SELECTOR
          ========================================== -->
-    <div id="view-auth" class="view-section">
+    <div id="view-role-select" class="view-section">
         <div class="retro-card">
             <button class="back-link" onclick="switchView('view-landing')">← Back</button>
             <h1>Role Select<span class="title-dot"></span></h1>
-            <p class="subtitle">Choose your access level</p>
+            <p class="subtitle">Choose your access portal</p>
             <div class="divider"></div>
             
             <div class="role-grid">
-                <button class="role-btn" onclick="loginAs('student')">🎓 Student Portal</button>
-                <button class="role-btn" onclick="loginAs('faculty')">🏫 Faculty Portal</button>
-                <button class="role-btn" onclick="loginAs('counselor')">💬 Counselor Portal</button>
+                <button class="role-btn" onclick="selectRole('student')">🎓 Student Portal</button>
+                <button class="role-btn" onclick="selectRole('faculty')">🏫 Faculty Portal</button>
+                <button class="role-btn" onclick="selectRole('counselor')">💬 Counselor Portal</button>
             </div>
         </div>
     </div>
 
     <!-- ==========================================
-         VIEW 3: DASHBOARD CONTAINER (Dynamic Sidebar + Main Area)
+         VIEW 3: CREDENTIALS / SIGN-IN FORM
+         ========================================== -->
+    <div id="view-auth" class="view-section">
+        <div class="retro-card">
+            <button class="back-link" onclick="switchView('view-role-select')">← Back to Roles</button>
+            <h1 id="auth-heading">Sign In<span class="title-dot"></span></h1>
+            <p class="subtitle" id="auth-subtitle">Enter your profile details</p>
+            <div class="divider"></div>
+            
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="input-name" placeholder="e.g. Aarav Sharma" required />
+                </div>
+                <div class="form-group">
+                    <label>Student ID / Roll Number</label>
+                    <input type="text" id="input-id" placeholder="e.g. STU-101" required />
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Academic Year</label>
+                        <select id="input-year" required>
+                            <option value="">Select Year</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Semester</label>
+                        <select id="input-sem" required>
+                            <option value="">Select Sem</option>
+                            <option value="Semester 1">Semester 1</option>
+                            <option value="Semester 2">Semester 2</option>
+                            <option value="Semester 3">Semester 3</option>
+                            <option value="Semester 4">Semester 4</option>
+                            <option value="Semester 5">Semester 5</option>
+                            <option value="Semester 6">Semester 6</option>
+                            <option value="Semester 7">Semester 7</option>
+                            <option value="Semester 8">Semester 8</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Institutional Email</label>
+                    <input type="email" id="input-email" placeholder="name@university.edu" required />
+                </div>
+                <button type="submit" style="margin-top: 10px;">Launch Dashboard →</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 4: DASHBOARD CONTAINER
          ========================================== -->
     <div id="view-dashboard" class="view-section dashboard-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
-            <h2 class="sidebar-brand">EduGuard<span class="title-dot"></span></h2>
-            <div id="sidebar-nav-links" class="sidebar-links">
-                <!-- Dynamically populated based on role -->
+            <div>
+                <h2 class="sidebar-brand">EduGuard<span class="title-dot"></span></h2>
+                <div id="user-session-info" class="session-box">
+                    <!-- Dynamic user info goes here -->
+                </div>
             </div>
-            <button class="logout-btn" onclick="switchView('view-auth')">Log Out</button>
+            <div id="sidebar-nav-links" class="sidebar-links">
+                <!-- Dynamically populated links -->
+            </div>
+            <button class="logout-btn" onclick="switchView('view-landing')">Log Out</button>
         </aside>
 
         <!-- Main Content Canvas -->
