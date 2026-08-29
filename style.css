@@ -317,3 +317,75 @@ button:hover { background: #e85c5c; transform: translate(1px, 1px); box-shadow: 
   overflow-y: auto;
   max-height: 560px;
 }
+/* Define the floating animation */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) translateX(15px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+/* Base style for floating decorative shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: 0; /* Keeps them behind your main card container */
+  pointer-events: none;
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+/* Individual floating objects with different sizes, colors, and animation speeds */
+.shape-1 {
+  width: 120px;
+  height: 120px;
+  background: #ffb7b2;
+  top: 10%;
+  left: 15%;
+  animation-duration: 7s;
+}
+
+.shape-2 {
+  width: 80px;
+  height: 80px;
+  background: #ffdac1;
+  bottom: 15%;
+  right: 15%;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  background: #b5ead7;
+  top: 20%;
+  right: 10%;
+  animation-duration: 9s;
+  animation-delay: 2s;
+}
+
+.shape-4 {
+  width: 90px;
+  height: 90px;
+  background: #c7ceea;
+  bottom: 20%;
+  left: 10%;
+  animation-duration: 6s;
+  animation-delay: 1.5s;
+}
+
+.shape-5 {
+  width: 60px;
+  height: 60px;
+  background: #ff9aa2;
+  top: 60%;
+  left: 25%;
+  animation-duration: 8s;
+  animation-delay: 0.5s;
+}
