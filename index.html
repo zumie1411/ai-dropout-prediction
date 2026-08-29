@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGuard AI • Student Retention System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Floating Background Shapes -->
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+
+    <!-- ==========================================
+         VIEW 1: LANDING PAGE
+         ========================================== -->
+    <div id="view-landing" class="view-section active">
+        <div class="retro-card landing-card">
+            <h1>EduGuard AI<span class="title-dot"></span></h1>
+            <p class="subtitle">AI-Based Drop-Out Prediction & Counseling System</p>
+            <div class="divider"></div>
+            <p class="landing-desc">Empowering students, faculty, and counselors with real-time risk tracking, AI insights, and targeted intervention strategies.</p>
+            <button onclick="switchView('view-auth')">Enter Portal →</button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 2: LOGIN / ROLE SELECTOR
+         ========================================== -->
+    <div id="view-auth" class="view-section">
+        <div class="retro-card">
+            <button class="back-link" onclick="switchView('view-landing')">← Back</button>
+            <h1>Role Select<span class="title-dot"></span></h1>
+            <p class="subtitle">Choose your access level</p>
+            <div class="divider"></div>
+            
+            <div class="role-grid">
+                <button class="role-btn" onclick="loginAs('student')">🎓 Student Portal</button>
+                <button class="role-btn" onclick="loginAs('faculty')">🏫 Faculty Portal</button>
+                <button class="role-btn" onclick="loginAs('counselor')">💬 Counselor Portal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 3: DASHBOARD CONTAINER (Dynamic Sidebar + Main Area)
+         ========================================== -->
+    <div id="view-dashboard" class="view-section dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h2 class="sidebar-brand">EduGuard<span class="title-dot"></span></h2>
+            <div id="sidebar-nav-links" class="sidebar-links">
+                <!-- Dynamically populated based on role -->
+            </div>
+            <button class="logout-btn" onclick="switchView('view-auth')">Log Out</button>
+        </aside>
+
+        <!-- Main Content Canvas -->
+        <main class="main-content">
+            <header class="dash-header">
+                <h2 id="page-title">Dashboard</h2>
+                <span id="user-role-badge" class="role-badge">Role</span>
+            </header>
+            
+            <div id="tab-content" class="tab-card retro-card">
+                <!-- Dynamic Content Views Load Here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

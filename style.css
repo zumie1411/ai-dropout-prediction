@@ -1,0 +1,321 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --peach: #f9a87a;
+  --coral: #f06b6b;
+  --teal: #3ec9b6;
+  --mint: #a8e6d8;
+  --lemon: #f9e07a;
+  --cream: #fdf4ec;
+  --warm: #4a2e2e;
+  --muted: #b08878;
+  --card-bg: #fffaf5;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #fde8d8 0%, #fdf4ec 45%, #d8f0eb 100%);
+  font-family: "Josefin Sans", sans-serif;
+  color: var(--warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Floating Shapes */
+.shape {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+.s1 { width: 300px; height: 300px; background: var(--peach); top: -60px; left: -60px; }
+.s2 { width: 220px; height: 220px; background: var(--teal); bottom: -40px; right: -40px; }
+.s3 { width: 150px; height: 150px; background: var(--lemon); top: 20%; right: 10%; }
+
+/* View Control */
+.view-section {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.view-section.active {
+  display: flex;
+}
+
+/* Retro Card Style */
+.retro-card, .landing-card {
+  background: var(--card-bg);
+  border-radius: 4px;
+  padding: 2.8rem 2.5rem 2.2rem;
+  box-shadow: 8px 8px 0 var(--peach), 16px 16px 0 rgba(240, 107, 107, 0.15);
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+}
+.retro-card::before, .landing-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--coral), var(--peach), var(--teal));
+  border-radius: 4px 4px 0 0;
+}
+
+h1, h2 {
+  font-family: "Playfair Display", serif;
+  color: var(--warm);
+  font-weight: 900;
+}
+.title-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  margin-left: 4px;
+}
+.subtitle {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, var(--coral), var(--peach), transparent);
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons & Inputs */
+button {
+  width: 100%;
+  padding: 12px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--coral);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #c04848;
+  transition: all 0.1s ease;
+}
+button:hover { background: #e85c5c; transform: translate(1px, 1px); box-shadow: 3px 3px 0 #c04848; }
+
+.role-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.role-btn {
+  background: var(--warm);
+  box-shadow: 4px 4px 0 var(--muted);
+}
+.back-link {
+  background: none;
+  border: none;
+  color: var(--muted);
+  box-shadow: none;
+  width: auto;
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 10px;
+}
+
+/* Dashboard Layout */
+.dashboard-layout {
+  max-width: 1100px;
+  margin: auto;
+  display: none;
+  gap: 24px;
+  padding: 20px;
+  align-items: stretch;
+}
+.sidebar {
+  width: 260px;
+  background: var(--card-bg);
+  padding: 2rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 6px 6px 0 var(--peach);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sidebar-brand {
+  font-size: 22px;
+  margin-bottom: 1.5rem;
+}
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+.nav-link {
+  background: transparent;
+  color: var(--warm);
+  border: 1px solid #e8d8cc;
+  box-shadow: none;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 11px;
+}
+.nav-link:hover, .nav-link.active {
+  background: var(--peach);
+  color: #fff;
+  border-color: var(--peach);
+  transform: none;
+  box-shadow: none;
+}
+.logout-btn {
+  background: #d9534f;
+  box-shadow: 3px 3px 0 #a94442;
+}
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.dash-header {
+  background: var(--card-bg);
+  padding: 1.2rem 2rem;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--peach);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.role-badge {
+  background: var(--teal);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.tab-card {
+  max-width: none;
+  box-shadow: 6px 6px 0 var(--peach);
+  min-height: 380px;
+}
+
+/* Floating Shapes with Enhanced Drift Motion */
+.shape {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+.s1 { 
+  width: 300px; 
+  height: 300px; 
+  background: var(--peach); 
+  top: -60px; 
+  left: -60px; 
+  animation-duration: 18s;
+}
+
+.s2 { 
+  width: 220px; 
+  height: 220px; 
+  background: var(--teal); 
+  bottom: -40px; 
+  right: -40px; 
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+
+.s3 { 
+  width: 150px; 
+  height: 150px; 
+  background: var(--lemon); 
+  top: 20%; 
+  right: 10%; 
+  animation-duration: 20s;
+  animation-delay: -8s;
+}
+
+/* Increased range for more fluid wandering */
+@keyframes drift {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(55px, -45px) scale(1.06);
+  }
+  66% {
+    transform: translate(-35px, 40px) scale(0.94);
+  }
+  100% {
+    transform: translate(30px, 45px) scale(1.03);
+  }
+}
+.s1 { 
+  width: 300px; 
+  height: 300px; 
+  background: var(--peach); 
+  top: -60px; 
+  left: -60px; 
+  animation-duration: 18s;
+}
+
+.s2 { 
+  width: 220px; 
+  height: 220px; 
+  background: var(--teal); 
+  bottom: -40px; 
+  right: -40px; 
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+
+.s3 { 
+  width: 150px; 
+  height: 150px; 
+  background: var(--lemon); 
+  top: 20%; 
+  right: 10%; 
+  animation-duration: 20s;
+  animation-delay: -8s;
+}
+
+/* Added New Shapes */
+.s4 {
+  width: 120px;
+  height: 120px;
+  background: var(--coral);
+  bottom: 15%;
+  left: 12%;
+  animation-duration: 24s;
+  animation-delay: -2s;
+  opacity: 0.35;
+}
+
+.s5 {
+  width: 90px;
+  height: 90px;
+  background: var(--mint);
+  top: 12%;
+  left: 25%;
+  animation-duration: 16s;
+  animation-delay: -6s;
+  opacity: 0.4;
+}
