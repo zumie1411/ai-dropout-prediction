@@ -91,7 +91,7 @@ body {
   display: flex;
 }
 
-/* Retro Card Style - Made more spatial and airy */
+/* Retro Card Style - Spatial & Airy */
 .retro-card, .landing-card {
   background: var(--card-bg);
   border-radius: 6px;
@@ -110,7 +110,7 @@ body {
   border-radius: 6px 6px 0 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: "Playfair Display", serif;
   color: var(--warm);
   font-weight: 900;
