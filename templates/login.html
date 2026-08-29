@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Login | AI Career Advisor</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <h1>Welcome Back 👋</h1>
+
+    <p>Login to discover your perfect career</p>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+        >
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+        >
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <p>
+
+        Don't have an account?
+
+        <a href="/register">
+            Register Here
+        </a>
+
+    </p>
+
+</div>
+
+</body>
+
+</html>

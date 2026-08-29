@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>🤖 AI Career Advisor</h2>
+
+    <a href="/logout">Logout</a>
+
+</nav>
+
+
+<div class="dashboard">
+
+    <h1>
+        Welcome, {{ username }} 👋
+    </h1>
+
+    <p>
+        Discover the career that matches your skills and interests.
+    </p>
+
+
+    <div class="card">
+
+        <h2>🎯 Career Assessment</h2>
+
+        <p>
+            Answer a few questions and get your personalized
+            career recommendations.
+        </p>
+
+        <a href="/assessment">
+
+            <button>
+                Start Assessment
+            </button>
+
+        </a>
+
+    </div>
+
+
+    <div class="features">
+
+        <div>
+
+            <h3>🧠 Smart Analysis</h3>
+
+            <p>
+                Our AI analyzes your skills and interests.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>📊 Career Match</h3>
+
+            <p>
+                Get career recommendations with matching percentages.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>🚀 Career Growth</h3>
+
+            <p>
+                Explore career paths that suit you best.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
