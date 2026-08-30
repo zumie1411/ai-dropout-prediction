@@ -1,0 +1,1051 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduAI - Student Analysis</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!-- Background Decorations -->
+
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+
+
+    <div class="app-container">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <h1>Edu<span>AI</span></h1>
+
+                <p>STUDENT SUCCESS PLATFORM</p>
+
+            </div>
+
+
+            <div class="menu-title">
+                NAVIGATION
+            </div>
+
+
+            <nav>
+
+                <button class="nav-item active"
+                    onclick="showSection('home', this)">
+
+                    <span>⌂</span>
+                    Home
+
+                </button>
+
+
+                <button class="nav-item"
+                    onclick="showSection('assessment', this)">
+
+                    <span>◈</span>
+                    AI Assessment
+
+                </button>
+
+
+                <button class="nav-item"
+                    onclick="showSection('dashboard', this)">
+
+                    <span>▣</span>
+                    Dashboard
+
+                </button>
+
+
+                <button class="nav-item"
+                    onclick="showSection('history', this)">
+
+                    <span>◷</span>
+                    History
+
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <button class="logout-btn">
+                    ⇥ Log Out
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+
+            <!-- ================= HOME ================= -->
+
+            <section id="home" class="page-section active-section">
+
+                <div class="topbar">
+
+                    <div>
+
+                        <h2>Welcome Back!</h2>
+
+                        <p>
+                            Discover your career path and analyze your academic risk.
+                        </p>
+
+                    </div>
+
+
+                    <div class="profile">
+
+                        <div class="avatar">
+                            S
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card">
+
+                    <div class="hero-text">
+
+                        <span class="tag">
+                            AI POWERED ANALYSIS
+                        </span>
+
+                        <h1>
+                            Build Your <br>
+                            Future With <span>Confidence.</span>
+                        </h1>
+
+                        <p>
+
+                            Get personalized career recommendations and
+                            student dropout risk analysis using Artificial
+                            Intelligence.
+
+                        </p>
+
+
+                        <button class="primary-btn"
+                            onclick="startAssessment()">
+
+                            Start Assessment →
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="hero-visual">
+
+                        <div class="circle-big">
+
+                            <div class="circle-inner">
+                                🎓
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FEATURES -->
+
+                <div class="feature-grid">
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            🎯
+                        </div>
+
+                        <h3>
+                            Career Prediction
+                        </h3>
+
+                        <p>
+                            Discover career options based on your skills
+                            and academic performance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            📊
+                        </div>
+
+                        <h3>
+                            Risk Analysis
+                        </h3>
+
+                        <p>
+                            AI analyzes multiple factors to identify
+                            potential dropout risks.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            🤖
+                        </div>
+
+                        <h3>
+                            AI Insights
+                        </h3>
+
+                        <p>
+                            Get personalized recommendations for your
+                            academic journey.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= ASSESSMENT ================= -->
+
+            <section id="assessment" class="page-section">
+
+
+                <div class="page-header">
+
+                    <span class="tag">
+                        STEP BY STEP ANALYSIS
+                    </span>
+
+                    <h1>
+                        AI Student Assessment
+                    </h1>
+
+                    <p>
+                        Answer a few questions and let our AI analyze your profile.
+                    </p>
+
+                </div>
+
+
+
+                <!-- PROGRESS -->
+
+                <div class="progress-container">
+
+                    <div class="progress-info">
+
+                        <span id="stepText">
+                            Step 1 of 3
+                        </span>
+
+                        <span id="progressPercent">
+                            33%
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                            id="progressFill">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FORM CARD -->
+
+                <div class="assessment-card">
+
+
+                    <!-- STEP 1 -->
+
+                    <div class="form-step active" id="step1">
+
+                        <div class="step-title">
+
+                            <span>01</span>
+
+                            <div>
+
+                                <h2>
+                                    Basic Information
+                                </h2>
+
+                                <p>
+                                    Tell us about yourself.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Enter your name"
+                                >
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Age
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="age"
+                                    placeholder="Enter age"
+                                >
+
+                            </div>
+
+
+
+                            <div class="input-group full-width">
+
+                                <label>
+                                    Academic Stream
+                                </label>
+
+                                <select id="stream">
+
+                                    <option value="">
+                                        Select your stream
+                                    </option>
+
+                                    <option value="Science">
+                                        Science
+                                    </option>
+
+                                    <option value="Commerce">
+                                        Commerce
+                                    </option>
+
+                                    <option value="Arts">
+                                        Arts
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="button-row">
+
+                            <button class="next-btn"
+                                onclick="nextStep(2)">
+
+                                Continue →
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- STEP 2 -->
+
+                    <div class="form-step" id="step2">
+
+
+                        <div class="step-title">
+
+                            <span>02</span>
+
+                            <div>
+
+                                <h2>
+                                    Academic Performance
+                                </h2>
+
+                                <p>
+                                    Enter your recent academic scores.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-grid">
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Mathematics Score
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="math_score"
+                                    min="0"
+                                    max="100"
+                                    placeholder="0 - 100"
+                                >
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Science Score
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="science_score"
+                                    min="0"
+                                    max="100"
+                                    placeholder="0 - 100"
+                                >
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    English Score
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="english_score"
+                                    min="0"
+                                    max="100"
+                                    placeholder="0 - 100"
+                                >
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Computer Score
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="computer_score"
+                                    min="0"
+                                    max="100"
+                                    placeholder="0 - 100"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="button-row">
+
+                            <button class="back-btn"
+                                onclick="previousStep(1)">
+
+                                ← Back
+
+                            </button>
+
+
+                            <button class="next-btn"
+                                onclick="nextStep(3)">
+
+                                Continue →
+
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- STEP 3 -->
+
+                    <div class="form-step" id="step3">
+
+
+                        <div class="step-title">
+
+                            <span>03</span>
+
+                            <div>
+
+                                <h2>
+                                    Student Risk Factors
+                                </h2>
+
+                                <p>
+                                    Help the AI understand your situation.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-grid">
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Attendance Percentage
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="attendance"
+                                    min="0"
+                                    max="100"
+                                    placeholder="0 - 100"
+                                >
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Daily Study Hours
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="study_hours"
+                                    min="0"
+                                    max="24"
+                                    placeholder="Hours per day"
+                                >
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Financial Problems
+                                </label>
+
+                                <select id="financial_problem">
+
+                                    <option value="">
+                                        Select option
+                                    </option>
+
+                                    <option value="Yes">
+                                        Yes
+                                    </option>
+
+                                    <option value="No">
+                                        No
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Mental Stress Level
+                                </label>
+
+                                <select id="mental_stress">
+
+                                    <option value="">
+                                        Select level
+                                    </option>
+
+                                    <option value="Low">
+                                        Low
+                                    </option>
+
+                                    <option value="Medium">
+                                        Medium
+                                    </option>
+
+                                    <option value="High">
+                                        High
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Internet Access
+                                </label>
+
+                                <select id="internet_access">
+
+                                    <option value="">
+                                        Select option
+                                    </option>
+
+                                    <option value="Yes">
+                                        Yes
+                                    </option>
+
+                                    <option value="No">
+                                        No
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div class="input-group">
+
+                                <label>
+                                    Parental Support
+                                </label>
+
+                                <select id="parental_support">
+
+                                    <option value="">
+                                        Select level
+                                    </option>
+
+                                    <option value="Low">
+                                        Low
+                                    </option>
+
+                                    <option value="Medium">
+                                        Medium
+                                    </option>
+
+                                    <option value="High">
+                                        High
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div class="input-group full-width">
+
+                                <label>
+                                    Family Income
+                                </label>
+
+                                <select id="family_income">
+
+                                    <option value="">
+                                        Select income level
+                                    </option>
+
+                                    <option value="Low">
+                                        Low
+                                    </option>
+
+                                    <option value="Medium">
+                                        Medium
+                                    </option>
+
+                                    <option value="High">
+                                        High
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="button-row">
+
+                            <button class="back-btn"
+                                onclick="previousStep(2)">
+
+                                ← Back
+
+                            </button>
+
+
+                            <button class="analyze-btn"
+                                onclick="analyzeStudent()">
+
+                                ✦ Analyze With AI
+
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <section id="dashboard" class="page-section">
+
+
+                <div class="page-header">
+
+                    <span class="tag">
+                        AI RESULT
+                    </span>
+
+                    <h1>
+                        Your Analysis Report
+                    </h1>
+
+                    <p>
+                        Personalized insights generated by our AI models.
+                    </p>
+
+                </div>
+
+
+                <div id="emptyDashboard"
+                    class="empty-state">
+
+                    <div class="empty-icon">
+                        📊
+                    </div>
+
+                    <h2>
+                        No Analysis Yet
+                    </h2>
+
+                    <p>
+                        Complete the AI assessment to view your results.
+                    </p>
+
+                    <button class="primary-btn"
+                        onclick="startAssessment()">
+
+                        Start Assessment
+
+                    </button>
+
+                </div>
+
+
+
+                <div id="resultDashboard"
+                    class="result-dashboard hidden">
+
+
+                    <!-- TOP RESULT CARDS -->
+
+                    <div class="result-grid">
+
+
+                        <div class="result-box career-box">
+
+                            <div class="result-label">
+
+                                🎯 RECOMMENDED CAREER
+
+                            </div>
+
+                            <h2 id="careerResult">
+
+                                -
+
+                            </h2>
+
+                            <p>
+
+                                Based on your academic profile
+                                and subject performance.
+
+                            </p>
+
+
+                            <div class="confidence">
+
+                                <span>
+                                    Career Match
+                                </span>
+
+                                <strong id="careerConfidence">
+
+                                    0%
+
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="result-box risk-box">
+
+                            <div class="result-label">
+
+                                ⚠ DROPOUT RISK
+
+                            </div>
+
+                            <h2 id="riskResult">
+
+                                -
+
+                            </h2>
+
+                            <p>
+
+                                Based on attendance, study patterns
+                                and other risk factors.
+
+                            </p>
+
+
+                            <div class="confidence">
+
+                                <span>
+                                    AI Confidence
+                                </span>
+
+                                <strong id="riskConfidence">
+
+                                    0%
+
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- INSIGHTS -->
+
+                    <div class="insight-card">
+
+                        <h2>
+                            🤖 AI Recommendation
+                        </h2>
+
+                        <p id="aiRecommendation">
+
+                            Complete your assessment to get
+                            personalized recommendations.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="action-row">
+
+                        <button class="back-btn"
+                            onclick="startAssessment()">
+
+                            Retake Assessment
+
+                        </button>
+
+
+                        <button class="next-btn"
+                            onclick="showSection('history')">
+
+                            View History →
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ================= HISTORY ================= -->
+
+            <section id="history" class="page-section">
+
+
+                <div class="page-header">
+
+                    <span class="tag">
+                        DATABASE RECORDS
+                    </span>
+
+                    <h1>
+                        Student Analysis History
+                    </h1>
+
+                    <p>
+                        Previously analyzed student records.
+                    </p>
+
+                </div>
+
+
+                <div class="history-card">
+
+                    <button class="load-btn"
+                        onclick="loadStudents()">
+
+                        ↻ Load Student Records
+
+                    </button>
+
+
+                    <div id="studentList">
+
+                        <p class="history-message">
+
+                            Click the button above to load records
+                            from the database.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+    <!-- LOADING MODAL -->
+
+    <div id="loadingModal"
+        class="loading-modal hidden">
+
+        <div class="loader-box">
+
+            <div class="loader"></div>
+
+            <h2>
+                AI is analyzing...
+            </h2>
+
+            <p>
+                Processing student information
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+```
